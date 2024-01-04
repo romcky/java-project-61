@@ -10,5 +10,9 @@ https://asciinema.org/a/Sz7PTogrPrv2zbPZDreIlE0JI
 ### Step6 asciinema
 https://asciinema.org/a/81vpcYM7vGrdtwcSzyhH0Pnn2
 
+### Step7 asciinema
+https://asciinema.org/a/U2ssSy1eM6r8HxLgvWzbMKTTI
+
+
 
 
