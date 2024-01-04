@@ -7,4 +7,8 @@
 ### Step5 asciinema
 https://asciinema.org/a/Sz7PTogrPrv2zbPZDreIlE0JI
 
+### Step6 asciinema
+https://asciinema.org/a/81vpcYM7vGrdtwcSzyhH0Pnn2
+
+
 
