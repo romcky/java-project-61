@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class PrimeGame{
+public class PrimeGame {
 
     public static String getCaption() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -12,7 +12,7 @@ public class PrimeGame{
         var rand = new Random();
         String[][] results = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int a = 1 + rand.nextInt(99);
+            int a = 1 + rand.nextInt(Limits.MAXRAND);
             String question = String.valueOf(a);
             int d = a - 1;
             while (d > 0 && a % d != 0) {

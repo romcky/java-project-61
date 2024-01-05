@@ -12,10 +12,10 @@ public class ProgressionGame {
         var rand = new Random();
         String[][] results = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int length = 5 + rand.nextInt(6);
+            int length = Limits.PROGRESSIONLEN + rand.nextInt(Limits.PROGRESSIONLEN);
             int index = rand.nextInt(length);
-            int start = rand.nextInt(99);
-            int step = 1 + rand.nextInt(11);
+            int start = rand.nextInt(Limits.MAXRAND);
+            int step = 1 + rand.nextInt(Limits.PROGRESSIONLEN);
             var builder = new StringBuilder();
             for (int j = 0; j < length; j++) {
                 if (j == index) {

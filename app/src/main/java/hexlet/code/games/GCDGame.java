@@ -12,8 +12,8 @@ public class GCDGame {
         var rand = new Random();
         String[][] results = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int a = 1 + rand.nextInt(99);
-            int b = 1 + rand.nextInt(99);
+            int a = 1 + rand.nextInt(Limits.MAXRAND);
+            int b = 1 + rand.nextInt(Limits.MAXRAND);
             String question = String.valueOf(a) + " " + String.valueOf(b);
             int gcd = Math.min(a, b);
             while (a % gcd != 0 || b % gcd != 0) {

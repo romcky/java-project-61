@@ -12,8 +12,8 @@ public class CalcGame {
         var rand = new Random();
         String[][] results = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int a = 1 + rand.nextInt(99);
-            int b = 1 + rand.nextInt(99);
+            int a = 1 + rand.nextInt(Limits.MAXRAND);
+            int b = 1 + rand.nextInt(Limits.MAXRAND);
             char[] operators = {'+', '-', '*'};
             char operator = operators[rand.nextInt(operators.length)];
             String question = String.valueOf(a) + " " + operator + " " + b;
@@ -25,7 +25,7 @@ public class CalcGame {
                 case '-':
                     answer = String.valueOf(a - b);
                     break;
-                case '*':
+                default:
                     answer = String.valueOf(a * b);
                     break;
             }

@@ -12,7 +12,7 @@ public class EvenGame {
         var rand = new Random();
         String[][] results = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int x = 1 + rand.nextInt(99);
+            int x = 1 + rand.nextInt(Limits.MAXRAND);
             String question = String.valueOf(x);
             String answer = (x % 2 == 0) ? "yes" : "no";
             results[i] =  new String[]{question, answer};

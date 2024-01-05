@@ -1,7 +1,11 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.*;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
 
 public class Engine {
     public static boolean startGame(int gameNumber) {
@@ -37,8 +41,8 @@ public class Engine {
             System.out.print("Your answer: ");
             String answer = in.next();
             if (!answer.equals(questionsAndAnswers[i][1])) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" +
-                        questionsAndAnswers[i][1] + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                        + questionsAndAnswers[i][1] + "'.");
                 return false;
             }
             System.out.println("Correct!");
