@@ -1,33 +1,36 @@
 package hexlet.code.games;
 
 import java.util.Random;
-public class CalcGame implements AbstractGame {
-    public String caption() {
+
+public class CalcGame {
+
+    public static String getCaption() {
         return "What is the result of the expression?";
     }
-    public void generate() {
-        a = rand.nextInt(100);
-        b = rand.nextInt(100);
-        op = new char[]{'+', '-', '*'}[rand.nextInt(3)];
-    }
 
-    public String question() {
-        return a + " " + op + " " + b;
-    }
-
-    public String answer() {
-        switch (op) {
-            case '+':
-                return String.valueOf(a + b);
-            case '-':
-                return String.valueOf(a - b);
-            default:
-                return String.valueOf(a * b);
+    public static String[][] generate(int cnt) {
+        var rand = new Random();
+        String[][] results = new String[cnt][];
+        for (int i = 0; i < cnt; i++) {
+            int a = 1 + rand.nextInt(99);
+            int b = 1 + rand.nextInt(99);
+            char[] operators = {'+', '-', '*'};
+            char operator = operators[rand.nextInt(operators.length)];
+            String question = String.valueOf(a) + " " + operator + " " + b;
+            String answer = "";
+            switch (operator) {
+                case '+':
+                    answer = String.valueOf(a + b);
+                    break;
+                case '-':
+                    answer = String.valueOf(a - b);
+                    break;
+                case '*':
+                    answer = String.valueOf(a * b);
+                    break;
+            }
+            results[i] = new String[]{question, answer};
         }
+        return results;
     }
-
-    private int a;
-    private int b;
-    private char op;
-    private final Random rand = new Random();
 }

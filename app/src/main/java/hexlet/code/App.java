@@ -1,25 +1,23 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
 
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        System.out.println(GREET + " - Greet");
+        System.out.println(EVEN + " - Even");
+        System.out.println(CALC + " - Calc");
+        System.out.println(GCD + " - GCD");
+        System.out.println(PROGRESSION + " - Progression");
+        System.out.println(PRIME + " - Prime");
+        System.out.println(EXIT + " - Exit");
         System.out.print("Your choice: ");
 
         Scanner in = new Scanner(System.in);
         int gameNumber = in.nextInt();
-        if (gameNumber == 0) {
+        if (gameNumber == EXIT) {
             return;
         }
 
@@ -27,31 +25,21 @@ public class App {
         System.out.print("May I have your name? ");
         String userName = in.next();
         System.out.println("Hello, " + userName + "!");
-        if (gameNumber == 1) {
+        if (gameNumber == GREET) {
             return;
         }
 
-        boolean gameResult = false;
-        switch (gameNumber) {
-            case 2:
-                gameResult = Engine.startGame(new EvenGame());
-                break;
-            case 3:
-                gameResult = Engine.startGame(new CalcGame());
-                break;
-            case 4:
-                gameResult = Engine.startGame(new GCDGame());
-                break;
-            case 5:
-                gameResult = Engine.startGame(new ProgressionGame());
-                break;
-            case 6:
-                gameResult = Engine.startGame(new PrimeGame());
-                break;
-        }
-
-        String gameAnswer = gameResult ? "Congratulations, " : "Let's try again, ";
-        gameAnswer += userName + "!";
-        System.out.println(gameAnswer);
+        boolean gameResult = Engine.startGame(gameNumber);
+        String gameMessage = gameResult ? "Congratulations, " : "Let's try again, ";
+        gameMessage += userName + "!";
+        System.out.println(gameMessage);
     }
+
+    public static final int EXIT = 0;
+    public static final int GREET = 1;
+    public static final int EVEN = 2;
+    public static final int CALC = 3;
+    public static final int GCD = 4;
+    public static final int PROGRESSION = 5;
+    public static final int PRIME = 6;
 }
