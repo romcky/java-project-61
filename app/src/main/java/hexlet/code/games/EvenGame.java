@@ -1,24 +1,26 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class EvenGame {
-    private static String[][] questionsAndAnswers;
-    public static String[][] getQuestionsAndAnswers() {
-        return questionsAndAnswers;
-    }
+    public static final String INFO = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MINVALUE = 1;
+    private static final int MAXVALUE = 100;
     public static String[] generate() {
-        final int minValue = 1;
-        final int maxValue = 100;
-        int x = Utils.random(minValue, maxValue);
+        int x = Utils.generateNumber(MINVALUE, MAXVALUE);
         String question = String.valueOf(x);
         String answer = (x % 2 == 0) ? "yes" : "no";
         return new String[]{question, answer};
     }
-    public static void generate(int cnt) {
-        questionsAndAnswers = new String[cnt][];
+    public static String[][] generate(int cnt) {
+        var questionsAndAnswers = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
             questionsAndAnswers[i] = generate();
         }
+        return questionsAndAnswers;
+    }
+    public static void startGame() {
+        Engine.runGame(INFO, generate(Engine.ROUNDSCNT));
     }
 }

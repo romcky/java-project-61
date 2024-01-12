@@ -3,21 +3,33 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static boolean startGame(String info, String[][] questionsAndAnswers) {
+    public static final int ROUNDSCNT = 3;
+    public static void runGame(String info, String[][] questionsAndAnswers) {
+        System.out.println("Welcome to the Brain Games!");
+        Scanner in = new Scanner(System.in);
+        System.out.print("May I have your name? ");
+        String userName = in.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println(info);
-        var in = new Scanner(System.in);
-        for (var questionAndAnswer : questionsAndAnswers) {
-            System.out.println("Question: " + questionAndAnswer[0]);
+
+        for (int i = 0; i < ROUNDSCNT; i++) {
+            var question = questionsAndAnswers[i][0];
+            var answer = questionsAndAnswers[i][1];
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = in.next();
-            if (!answer.equals(questionAndAnswer[1])) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
-                        + questionAndAnswer[1] + "'.");
-                return false;
+            String userAnswer = in.next();
+            if (userAnswer.equals(answer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + userAnswer
+                        + "' is wrong answer ;(. Correct answer was '"
+                        + answer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                return;
             }
-            System.out.println("Correct!");
         }
-        return true;
+
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
 

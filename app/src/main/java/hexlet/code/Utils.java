@@ -1,10 +1,6 @@
 package hexlet.code;
-
-import java.util.Random;
-
 public class Utils {
-    private static final Random RND = new Random();
-    public static int random(int start, int stop) {
-        return start + RND.nextInt(stop - start);
+    public static int generateNumber(int min, int max) {
+        return (int) Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

@@ -8,5 +8,6 @@ public class Cli {
         var in = new Scanner(System.in);
         String name = in.next();
         System.out.println("Hello, " + name + "!");
+        in.close();
     }
 }

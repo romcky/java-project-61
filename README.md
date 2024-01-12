@@ -4,17 +4,17 @@
 ### Code Climate Maintainability Badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/bc1cb69bf0072eb41a87/maintainability)](https://codeclimate.com/github/romcky/java-project-61/maintainability)
 
-### Step5 asciinema
-https://asciinema.org/a/pdQbQ5qOiSAlENpFVTVrtu5j2
+### Even game asciinema
+[![asciicast](https://asciinema.org/a/NftcJe87HGTontLVmZs4rLRPZ.svg)](https://asciinema.org/a/NftcJe87HGTontLVmZs4rLRPZ)
 
-### Step6 asciinema
-https://asciinema.org/a/K4ywA4lVWecO2p4CVsvLolzF6
+### Calc game asciinema
+[![asciicast](https://asciinema.org/a/baPW7lBn4kTge0jX2bJgMxuPE.svg)](https://asciinema.org/a/baPW7lBn4kTge0jX2bJgMxuPE)
 
-### Step7 asciinema
-https://asciinema.org/a/4ss2TmJFC52QjG84q27BeJh7Y
+### GCD game asciinema
+[![asciicast](https://asciinema.org/a/WhYTybrT8XltEvClGUUHnR1R4.svg)](https://asciinema.org/a/WhYTybrT8XltEvClGUUHnR1R4)
 
-### Step8 asciinema
-https://asciinema.org/a/96bebx3sQWADk7rHB1PeNs6dm
+### Progression game asciinema
+[![asciicast](https://asciinema.org/a/SS9G2dKZEUFi6Qa9ocI63nG8D.svg)](https://asciinema.org/a/SS9G2dKZEUFi6Qa9ocI63nG8D)
 
-### Step9 asciinema
-https://asciinema.org/a/ea1t3KYImKuvP34jiGhmEtUxi
+### Prime game asciinema
+[![asciicast](https://asciinema.org/a/J31EQe5WUnQVnCavYakXuNbno.svg)](https://asciinema.org/a/J31EQe5WUnQVnCavYakXuNbno)

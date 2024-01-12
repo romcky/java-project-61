@@ -1,19 +1,17 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class CalcGame {
-    private static String[][] questionsAndAnswers;
-    public static String[][] getQuestionsAndAnswers() {
-        return questionsAndAnswers;
-    }
+    public static final String INFO = "What is the result of the expression?";
+    private static final int MINVALUE = 0;
+    private static final int MAXVALUE = 100;
     public static String[] generate() {
-        final int minValue = 0;
-        final int maxValue = 100;
-        int a = Utils.random(minValue, maxValue);
-        int b = Utils.random(minValue, maxValue);
+        int a = Utils.generateNumber(MINVALUE, MAXVALUE);
+        int b = Utils.generateNumber(MINVALUE, MAXVALUE);
         char[] operators = {'+', '-', '*'};
-        char operator = operators[Utils.random(minValue, operators.length)];
+        char operator = operators[Utils.generateNumber(MINVALUE, MAXVALUE) % operators.length];
         String question = String.valueOf(a) + " " + operator + " " + b;
         String answer = "";
         switch (operator) {
@@ -29,10 +27,14 @@ public class CalcGame {
         }
         return new String[]{question, answer};
     }
-    public static void generate(int cnt) {
-        questionsAndAnswers = new String[cnt][];
+    public static String[][] generate(int cnt) {
+        var questionsAndAnswers = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
             questionsAndAnswers[i] = generate();
         }
+        return questionsAndAnswers;
+    }
+    public static void startGame() {
+        Engine.runGame(INFO, generate(Engine.ROUNDSCNT));
     }
 }
