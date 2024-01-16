@@ -7,14 +7,12 @@ public class CalcGame {
     public static final String INFO = "What is the result of the expression?";
     private static final int MINVALUE = 0;
     private static final int MAXVALUE = 100;
-    public static String[] generate() {
-        int a = Utils.generateNumber(MINVALUE, MAXVALUE);
-        int b = Utils.generateNumber(MINVALUE, MAXVALUE);
-        char[] operators = {'+', '-', '*'};
-        char operator = operators[Utils.generateNumber(MINVALUE, MAXVALUE) % operators.length];
-        String question = String.valueOf(a) + " " + operator + " " + b;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int MAXOP = 2;
+    public static String[] generatePair(int a, int b, char op) {
+        String question = String.valueOf(a) + " " + op + " " + b;
         String answer = "";
-        switch (operator) {
+        switch (op) {
             case '+':
                 answer = String.valueOf(a + b);
                 break;
@@ -30,7 +28,10 @@ public class CalcGame {
     public static String[][] generate(int cnt) {
         var questionsAndAnswers = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            questionsAndAnswers[i] = generate();
+            int a = Utils.generateNumber(MINVALUE, MAXVALUE);
+            int b = Utils.generateNumber(MINVALUE, MAXVALUE);
+            char op = OPERATORS[Utils.generateNumber(MINVALUE, MAXOP)];
+            questionsAndAnswers[i] = generatePair(a, b, op);
         }
         return questionsAndAnswers;
     }

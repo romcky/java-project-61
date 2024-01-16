@@ -7,8 +7,7 @@ public class PrimeGame {
     public static final String INFO = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MINVALUE = 1;
     private static final int MAXVALUE = 100;
-    public static String[] generate() {
-        int a = Utils.generateNumber(MINVALUE, MAXVALUE);
+    public static String[] generatePair(int a) {
         String question = String.valueOf(a);
         int d = a - 1;
         while (d > 0 && a % d != 0) {
@@ -20,7 +19,8 @@ public class PrimeGame {
     public static String[][] generate(int cnt) {
         var questionsAndAnswers = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            questionsAndAnswers[i] = generate();
+            int a = Utils.generateNumber(MINVALUE, MAXVALUE);
+            questionsAndAnswers[i] = generatePair(a);
         }
         return questionsAndAnswers;
     }
