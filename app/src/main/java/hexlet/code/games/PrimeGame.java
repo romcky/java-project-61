@@ -7,25 +7,27 @@ public class PrimeGame {
     public static final String INFO = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MINVALUE = 1;
     private static final int MAXVALUE = 100;
-    public static String[] generatePair(int a) {
-        String question = String.valueOf(a);
-        int d = a - 1;
-        while (d > 0 && a % d != 0) {
+
+    public static boolean isPrime(int x) {
+        int d = x - 1;
+        while (d > 0 && x % d != 0) {
             d--;
         }
-        String answer = (d > 1) ? "no" : "yes";
-        return new String[]{question, answer};
+        return d <= 1;
     }
-    public static String[][] generate(int cnt) {
-        var questionsAndAnswers = new String[cnt][];
+
+    public static String[][] generateData(int cnt) {
+        var data = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
-            int a = Utils.generateNumber(MINVALUE, MAXVALUE);
-            questionsAndAnswers[i] = generatePair(a);
+            int x = Utils.generateNumber(MINVALUE, MAXVALUE);
+            String question = String.valueOf(x);
+            String answer = isPrime(x) ? "yes" : "no";
+            data[i] = new String[] {question, answer};
         }
-        return questionsAndAnswers;
+        return data;
     }
 
     public static void startGame() {
-        Engine.runGame(INFO, generate(Engine.ROUNDSCNT));
+        Engine.runGame(INFO, generateData(Engine.ROUNDSCNT));
     }
 }

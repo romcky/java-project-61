@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDSCNT = 3;
+
     public static void runGame(String info, String[][] questionsAndAnswers) {
         System.out.println("Welcome to the Brain Games!");
         Scanner in = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         System.out.println(info);
 
-        for (int i = 0; i < ROUNDSCNT; i++) {
+        for (int i = 0; i < questionsAndAnswers.length; i++) {
             var question = questionsAndAnswers[i][0];
             var answer = questionsAndAnswers[i][1];
             System.out.println("Question: " + question);
@@ -34,4 +35,3 @@ public class Engine {
         in.close();
     }
 }
-

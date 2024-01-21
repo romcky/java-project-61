@@ -7,25 +7,28 @@ public class GCDGame {
     public static final String INFO = "Find the greatest common divisor of given numbers.";
     private static final int MINVALUE = 1;
     private static final int MAXVLAUE = 100;
-    public static String[] generatePair(int a, int b) {
-        String question = String.valueOf(a) + " " + String.valueOf(b);
-        int gcd = Math.min(a, b);
-        while (a % gcd != 0 || b % gcd != 0) {
-            gcd--;
+
+    public static int gcd(int a, int b) {
+        int g = Math.min(a, b);
+        while (a % g != 0 || b % g != 0) {
+            g--;
         }
-        String answer = String.valueOf(gcd);
-        return new String[]{question, answer};
+        return g;
     }
-    public static String[][] generate(int cnt) {
-        var questionsAndAnswers = new String[cnt][];
+
+    public static String[][] generateData(int cnt) {
+        var data = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
             int a = Utils.generateNumber(MINVALUE, MAXVLAUE);
             int b = Utils.generateNumber(MINVALUE, MAXVLAUE);
-            questionsAndAnswers[i] = generatePair(a, b);
+            String question = String.valueOf(a) + " " + String.valueOf(b);
+            String answer = String.valueOf(gcd(a, b));
+            data[i] = new String[] {question, answer};
         }
-        return questionsAndAnswers;
+        return data;
     }
+
     public static void startGame() {
-        Engine.runGame(INFO, generate(Engine.ROUNDSCNT));
+        Engine.runGame(INFO, generateData(Engine.ROUNDSCNT));
     }
 }

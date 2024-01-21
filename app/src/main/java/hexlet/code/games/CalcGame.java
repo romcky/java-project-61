@@ -9,33 +9,32 @@ public class CalcGame {
     private static final int MAXVALUE = 100;
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final int MAXOP = 2;
-    public static String[] generatePair(int a, int b, char op) {
-        String question = String.valueOf(a) + " " + op + " " + b;
-        String answer = "";
+
+    public static int calc(int a, int b, char op) {
         switch (op) {
             case '+':
-                answer = String.valueOf(a + b);
-                break;
+                return a + b;
             case '-':
-                answer = String.valueOf(a - b);
-                break;
+                return a - b;
             default:
-                answer = String.valueOf(a * b);
-                break;
+                return a * b;
         }
-        return new String[]{question, answer};
     }
-    public static String[][] generate(int cnt) {
-        var questionsAndAnswers = new String[cnt][];
+
+    public static String[][] generateData(int cnt) {
+        var data = new String[cnt][];
         for (int i = 0; i < cnt; i++) {
             int a = Utils.generateNumber(MINVALUE, MAXVALUE);
             int b = Utils.generateNumber(MINVALUE, MAXVALUE);
-            char op = OPERATORS[Utils.generateNumber(MINVALUE, MAXOP)];
-            questionsAndAnswers[i] = generatePair(a, b, op);
+            char op = OPERATORS[Utils.generateNumber(MAXOP)];
+            String question = String.valueOf(a) + " " + op + " " + String.valueOf(b);
+            String answer = String.valueOf(calc(a, b, op));
+            data[i] = new String[] {question, answer};
         }
-        return questionsAndAnswers;
+        return data;
     }
+
     public static void startGame() {
-        Engine.runGame(INFO, generate(Engine.ROUNDSCNT));
+        Engine.runGame(INFO, generateData(Engine.ROUNDSCNT));
     }
 }
