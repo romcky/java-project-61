@@ -26,7 +26,7 @@ public class App {
             case "0":
                 break;
             case "1":
-                Cli.nameRequest();
+                Cli.greetUser();
                 break;
             case "2":
                 EvenGame.startGame();

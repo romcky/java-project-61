@@ -10,14 +10,16 @@ public class CalcGame {
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final int MAXOP = 2;
 
-    public static int calc(int a, int b, char op) {
+    public static int calculate(int a, int b, char op) {
         switch (op) {
             case '+':
                 return a + b;
             case '-':
                 return a - b;
-            default:
+            case '*':
                 return a * b;
+            default:
+                throw new IllegalArgumentException("Unknown operator");
         }
     }
 
@@ -28,7 +30,7 @@ public class CalcGame {
             int b = Utils.generateNumber(MINVALUE, MAXVALUE);
             char op = OPERATORS[Utils.generateNumber(MAXOP)];
             String question = String.valueOf(a) + " " + op + " " + String.valueOf(b);
-            String answer = String.valueOf(calc(a, b, op));
+            String answer = String.valueOf(calculate(a, b, op));
             data[i] = new String[] {question, answer};
         }
         return data;

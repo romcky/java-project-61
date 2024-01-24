@@ -9,11 +9,15 @@ public class PrimeGame {
     private static final int MAXVALUE = 100;
 
     public static boolean isPrime(int x) {
-        int d = x - 1;
-        while (d > 0 && x % d != 0) {
-            d--;
+        if (x < 2) {
+            return false;
         }
-        return d <= 1;
+        for (int i = 2; i <= Math.round(Math.sqrt(x)); i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static String[][] generateData(int cnt) {
